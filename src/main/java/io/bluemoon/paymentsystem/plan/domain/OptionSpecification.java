@@ -32,7 +32,9 @@ public class OptionSpecification {
     OptionSpecification() {
     }
 
-    public boolean
+    public boolean isSatisfiedBy(Option option) {
+        return Objects.equals(name, option.getName()) && Objects.equals(price, option.getPrice());
+    }
 
     @Override
     public boolean equals(Object obj) {
