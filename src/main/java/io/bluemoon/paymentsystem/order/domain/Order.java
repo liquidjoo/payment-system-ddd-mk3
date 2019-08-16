@@ -61,6 +61,11 @@ public class Order extends AbstractAggregateRoot<Order> {
         return orderLineItems.stream().map(OrderLineItem::getPlanId).collect(Collectors.toList());
     }
 
+    public void place(OrderValidator orderValidator) {
+        orderValidator.validate(this);
+        ordered();
+    }
+
     private void ordered() {
         this.orderStatus = OrderStatus.ORDERED;
     }

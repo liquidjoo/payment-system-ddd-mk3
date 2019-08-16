@@ -1,5 +1,6 @@
 package io.bluemoon.paymentsystem.product.domain;
 
+import io.bluemoon.paymentsystem.generic.money.domain.Money;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -36,5 +37,8 @@ public class Product {
 
     }
 
+//    public boolean isValidOrderAmount(Money amount) {
+//        return amount.isGreaterThanOrEqual()
+//    }
 
 }
