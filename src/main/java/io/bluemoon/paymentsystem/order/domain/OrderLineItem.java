@@ -22,7 +22,7 @@ public class OrderLineItem {
     @Column
     private Long planId;
 
-    @Column
+    @Column(name = "plan_name")
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL)

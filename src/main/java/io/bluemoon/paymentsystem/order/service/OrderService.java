@@ -24,6 +24,8 @@ public class OrderService {
     public void placeOrder(Cart cart) {
         Order order = orderMapper.mapFrom(cart);
         order.place(orderValidator);
+
+        System.out.println(order);
         orderRepository.save(order);
     }
 }

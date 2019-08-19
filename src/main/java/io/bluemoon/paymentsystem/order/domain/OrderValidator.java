@@ -28,7 +28,10 @@ public class OrderValidator {
 
 
     void validate(Order order, Product product, Map<Long, Plan> plans) {
-        if (!product.getStatus().equals("ACTIVE")) {
+        if (!product.getStatus().toString().equals("ACTIVE")) {
+            System.out.println(product.getStatus().toString());
+            System.out.println(product.getId());
+            System.out.println(product.getName());
             throw new IllegalArgumentException("닫힌 상품");
         }
 

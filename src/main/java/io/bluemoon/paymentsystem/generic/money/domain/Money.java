@@ -41,7 +41,6 @@ public class Money {
         return amount;
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -55,12 +54,10 @@ public class Money {
         return Objects.equals(amount.doubleValue(), other.amount.doubleValue());
     }
 
-    @Override
     public int hashCode() {
         return Objects.hashCode(amount);
     }
 
-    @Override
     public String toString() {
         return amount.toString() + "원";
     }

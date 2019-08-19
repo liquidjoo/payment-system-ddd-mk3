@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@Table
+@Table(name = "\"order\"")
 @Getter
 public class Order extends AbstractAggregateRoot<Order> {
     public enum OrderStatus {ORDERED, PAYED, COMPLETED}

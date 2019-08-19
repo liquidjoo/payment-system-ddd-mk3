@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@Table
+@Table(name = "option_group_spec")
 @Getter
 public class OptionGroupSpecification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "option_group_sec_id")
+    @Column(name = "option_group_spec_id")
     private Long id;
 
     @Column(name = "name")
@@ -28,7 +28,7 @@ public class OptionGroupSpecification {
     private boolean basic;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "option_group_sec_id")
+    @JoinColumn(name = "option_group_spec_id")
     private List<OptionSpecification> optionSpecs = new ArrayList<>();
 
     @Builder

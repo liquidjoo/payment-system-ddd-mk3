@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "option_spec")
 @Getter
 public class OptionSpecification {
     @Id
@@ -19,8 +19,12 @@ public class OptionSpecification {
     @Column
     private String name;
 
-    @Column
+    @Column(name = "price", nullable = false, precision = 21, scale = 6)
     private Money price;
+
+    public OptionSpecification(String name, Money price) {
+        this(null, name, price);
+    }
 
     @Builder
     public OptionSpecification(Long id, String name, Money price) {
@@ -47,7 +51,7 @@ public class OptionSpecification {
         }
 
         OptionSpecification other = (OptionSpecification) obj;
-        return Objects.equals(name, other.getName()) && Objects.equals(price, other.getName());
+        return Objects.equals(name, other.getName()) && Objects.equals(price, other.getPrice());
     }
 
     @Override
