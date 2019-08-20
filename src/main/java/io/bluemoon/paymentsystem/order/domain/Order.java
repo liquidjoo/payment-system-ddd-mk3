@@ -74,4 +74,9 @@ public class Order extends AbstractAggregateRoot<Order> {
         return Money.sum(orderLineItems, OrderLineItem::calculatePrice);
     }
 
+    public void payed() {
+        this.orderStatus = OrderStatus.PAYED;
+        registerEvent(new OrderPayedEvent(this));
+    }
+
 }
