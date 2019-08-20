@@ -2,7 +2,6 @@ package io.bluemoon.paymentsystem.order.service;
 
 import io.bluemoon.paymentsystem.order.domain.Order;
 import io.bluemoon.paymentsystem.order.domain.OrderLineItem;
-import io.bluemoon.paymentsystem.order.domain.OrderOption;
 import io.bluemoon.paymentsystem.order.domain.OrderOptionGroup;
 import org.springframework.stereotype.Component;
 
@@ -33,8 +32,8 @@ public class OrderMapper {
         );
     }
 
-    private OrderOption toOrderOption(Cart.CartOption cartOption) {
-        return new OrderOption(
+    private OrderLineItem.OrderOption toOrderOption(Cart.CartOption cartOption) {
+        return new OrderLineItem.OrderOption(
                 cartOption.getName(),
                 cartOption.getPrice());
     }

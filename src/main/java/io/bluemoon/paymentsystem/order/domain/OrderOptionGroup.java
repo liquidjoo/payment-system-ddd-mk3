@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,14 +22,14 @@ public class OrderOptionGroup {
 
     @ElementCollection
     @CollectionTable(name = "order_option", joinColumns = @JoinColumn(name = "order_option_group_id"))
-    private List<OrderOption> orderOptions;
+    private List<OrderLineItem.OrderOption> orderOptions;
 
-    public OrderOptionGroup(String name, List<OrderOption> options) {
+    public OrderOptionGroup(String name, List<OrderLineItem.OrderOption> options) {
         this(null, name, options);
     }
 
     @Builder
-    public OrderOptionGroup(Long id, String name, List<OrderOption> options) {
+    public OrderOptionGroup(Long id, String name, List<OrderLineItem.OrderOption> options) {
         this.id = id;
         this.name = name;
         this.orderOptions = options;
@@ -41,11 +40,11 @@ public class OrderOptionGroup {
     }
 
     public Money calcaulatePrice() {
-        return Money.sum(orderOptions, OrderOption::getPrice);
+        return Money.sum(orderOptions, OrderLineItem.OrderOption::getPrice);
     }
 
     public OptionGroup convertToOptionGroup() {
-        return new OptionGroup(name, orderOptions.stream().map(OrderOption::convertToOption).collect(Collectors.toList()));
+        return new OptionGroup(name, orderOptions.stream().map(OrderLineItem.OrderOption::convertToOption).collect(Collectors.toList()));
     }
 
 }
