@@ -4,8 +4,9 @@ import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.AccessToken;
 import com.siot.IamportRestClient.response.IamportResponse;
-import com.uneedcomms.payment.generic.http.domain.APIRequest;
-import com.uneedcomms.payment.iamport.subscribe.domain.CustomerCard;
+
+import io.bluemoon.paymentsystem.generic.http.domain.APIRequest;
+import io.bluemoon.paymentsystem.iamport.subscribe.domain.CustomerCard;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

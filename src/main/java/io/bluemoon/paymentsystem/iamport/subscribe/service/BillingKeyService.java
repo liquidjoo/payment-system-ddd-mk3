@@ -1,7 +1,7 @@
 package io.bluemoon.paymentsystem.iamport.subscribe.service;
 
-import com.uneedcomms.payment.iamport.subscribe.domain.BillingKey;
-import com.uneedcomms.payment.iamport.subscribe.domain.BillingKeyRepository;
+import io.bluemoon.paymentsystem.iamport.subscribe.domain.BillingKey;
+import io.bluemoon.paymentsystem.iamport.subscribe.domain.BillingKeyRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
