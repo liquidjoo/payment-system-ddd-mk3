@@ -62,23 +62,23 @@ public class Plan {
                 .orElseThrow(IllegalStateException::new);
     }
 
-    public void validateOrder(String planName, List<OptionGroup> optionGroups) {
-        if (!this.name.equals(planName)) {
-            throw new IllegalArgumentException("기본 상품이 변경됐습니다.");
-        }
-
-        if (!isSatisfiedBy(optionGroups)) {
-            throw new IllegalArgumentException("메뉴가 변경됐습니다.");
-        }
-    }
-
-    private boolean isSatisfiedBy(List<OptionGroup> cartOptionGroups) {
-        return cartOptionGroups.stream().anyMatch(this::isSatisfiedBy);
-    }
-
-    private boolean isSatisfiedBy(OptionGroup group) {
-        return optionGroupSpecs.stream().anyMatch(spec -> spec.isSatisfiedBy(group));
-    }
+//    public void validateOrder(String planName, List<OptionGroup> optionGroups) {
+//        if (!this.name.equals(planName)) {
+//            throw new IllegalArgumentException("기본 상품이 변경됐습니다.");
+//        }
+//
+//        if (!isSatisfiedBy(optionGroups)) {
+//            throw new IllegalArgumentException("메뉴가 변경됐습니다.");
+//        }
+//    }
+//
+//    private boolean isSatisfiedBy(List<OptionGroup> cartOptionGroups) {
+//        return cartOptionGroups.stream().anyMatch(this::isSatisfiedBy);
+//    }
+//
+//    private boolean isSatisfiedBy(OptionGroup group) {
+//        return optionGroupSpecs.stream().anyMatch(spec -> spec.isSatisfiedBy(group));
+//    }
 
 
 
